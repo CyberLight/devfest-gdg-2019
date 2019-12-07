@@ -108,8 +108,8 @@ chess.css
 chess.css.map
 
 # Failed test screenshots
-errors/*
-!errors/.keep
+tests/errors/*
+!tests/errors/.keep
 
 # Ignore system files
 .DS_Store
