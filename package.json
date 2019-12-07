@@ -1,0 +1,24 @@
+{
+  "name": "devfest-gdg-2019",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node tests",
+    "start": "node index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "colors": "^1.4.0",
+    "express": "^4.17.1",
+    "pixelmatch": "^5.1.0",
+    "pngjs": "^3.4.0",
+    "puppeteer": "^2.0.0"
+  },
+  "devDependencies": {
+    "expect": "^24.9.0"
+  }
+}
