@@ -1,0 +1,90 @@
+:root {
+    --cell-width: 30px;
+    --cell-selected-bg: #ff0000;
+    --cell-marker-bg: #0000ff;
+    --cell-light-bg: #f4cd8d;
+    --cell-dark-bg: #745853;
+    --cell-count: 8;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#chess {
+    width: calc(var(--cell-width) * var(--cell-count));
+    height: calc(var(--cell-width) * var(--cell-count));
+    margin: 0;
+    border: 0;
+}
+
+#chess button {
+    float: left;
+    border: none;
+    outline: none;
+    width: var(--cell-width);
+    height: var(--cell-width);
+}
+
+// button::after {
+//     content: attr(index);
+// }
+
+#chess button:not(:focus) {
+    background-color: var(--cell-light-bg);
+}
+
+#chess button:nth-child(-2n+8):not(:focus),
+#chess button:nth-child(8)~button:nth-child(-2n+15):not(:focus),
+#chess button:nth-child(16)~button:nth-child(-2n+24):not(:focus),
+#chess button:nth-child(24)~button:nth-child(-2n+31):not(:focus),
+#chess button:nth-child(32)~button:nth-child(-2n+40):not(:focus),
+#chess button:nth-child(40)~button:nth-child(-2n+47):not(:focus),
+#chess button:nth-child(48)~button:nth-child(-2n+56):not(:focus),
+#chess button:nth-child(56)~button:nth-child(-2n+63):not(:focus) {
+    background-color: var(--cell-dark-bg);
+    color: white;
+}
+
+#chess button:focus {
+    background-color: var(--cell-selected-bg);
+}
+
+.marker {
+    position: absolute;
+    left: calc(var(--cell-width) * -1); 
+    top: calc(var(--cell-width) * -1);
+    width: var(--cell-width);
+    height: var(--cell-width);
+    pointer-events: none;
+    background-color: var(--cell-marker-bg);
+    color: white;
+}
+
+@function is-in-range($v) {
+    @return $v >= 1 and $v <= 8;
+}
+
+@mixin marker-at($el-idx, $row, $col, $marker-idx) {
+    @if is-in-range($row) and is-in-range($col) {
+        button:nth-child(#{$el-idx}):focus ~ .m#{$marker-idx} {
+            top: calc(#{$row - 1} * var(--cell-width));
+            left: calc(#{$col - 1} * var(--cell-width));
+        }
+    }
+}
+
+$row-offsets: 1,  2,  2,  1, -1, -2, -2, -1;
+$col-offsets: 2,  1, -1, -2, -2, -1,  1,  2;
+
+@for $row from 1 through 8 {
+    @for $col from 1 through 8 {
+        $el-idx: (($row - 1) * 8) + $col;
+        @for $maker-idx from 1 through 8 {
+           $row-offset: nth($row-offsets, $maker-idx);
+           $col-offset: nth($col-offsets, $maker-idx);
+           @include marker-at($el-idx, $row + $row-offset, $col + $col-offset, $maker-idx); 
+        }
+    }
+}
