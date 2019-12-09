@@ -50,6 +50,12 @@ RUN apt-get update \
     && apt-get install -y google-chrome-stable fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst ttf-freefont \
     --no-install-recommends \
     #
+    # install locales
+    && apt-get install -y locales \
+    && sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
+    && dpkg-reconfigure --frontend=noninteractive locales \
+    && update-locale LANG=en_US.UTF-8 \
+    #
     # Add non-sudo user for puppeteer
     && groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
         && mkdir -p /home/pptruser/Downloads \
@@ -72,3 +78,5 @@ RUN apt-get update \
 ENV DEBIAN_FRONTEND=
 # Disable Chromium auto-download for Puppeteer
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
+# Set language
+ENV LANG en_US.UTF-8
