@@ -43,3 +43,7 @@ _______________
 * Go to `chess.scss` and click on `Watch Sass` in the `VSCode` status bar to create raw css of chessboard
   * After that, you will see two new files in the project root folder
 * In `VSCode` integrated terminal run `npm test` (for running tests) or `npm start` (for viewing final result of task solution)
+
+## Special thanks to
+_______________
+[<img width="150px" height="38px" src="https://yastatic.net/q/logoaas/v1/%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%BE%D0%BD%D1%82%D0%B5%D1%81%D1%82.svg" alt="gdg-devfest-2019"/>](https://yandex.ru/championship/)
