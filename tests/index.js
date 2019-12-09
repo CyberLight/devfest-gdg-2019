@@ -67,6 +67,7 @@ function getArtifactSync(artifactPath) {
 async function runTests(folderPath) {
     await app.open(9001);
     const browser = await startBrowser();
+    const NS_PER_SEC = 1e9;
     const allTestFiles = fs.readdirSync(folderPath).filter(f => f.match(/.*\.test\.js$/));
     let testsPassed = 0;
     let error;
@@ -107,11 +108,15 @@ async function runTests(folderPath) {
                         return [col * CellWH - HalfCellWH, row * CellWH - HalfCellWH];
                     }
                 };
-
+                
                 try {
                     process.stdout.write(colors.yellow(`-> ${t.name}`));
+                    const timeFrom = process.hrtime();
                     await t(params);
-                    process.stdout.write(colors.green(`\r\u2713 ${t.name.padEnd(80, ' ')}\n`));
+                    const [diffSec, diffNanoSec] = process.hrtime(timeFrom);
+                    const timeTextSection = colors.cyan(`${(diffSec + Number(diffNanoSec / NS_PER_SEC)).toFixed(3)}s`);
+                    const testInfoLine = `${t.name} - ${timeTextSection}`.padEnd(80, ' ');
+                    process.stdout.write(colors.green(`\r\u2713 ${testInfoLine}\n`));
                     testsPassed += 1; 
                 } catch (e) {
                     savePngObjSync(diffPngObj, artifactDiffPath);
