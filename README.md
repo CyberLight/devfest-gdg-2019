@@ -10,6 +10,9 @@
     <br>
 </div>
 
+## `Task D` description
+* [Task D Description in PDF format](docs/ru_task_D_final.pdf)
+
 ## `Hi-tech` setup
 _______________
 
