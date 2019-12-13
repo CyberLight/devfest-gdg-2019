@@ -12,13 +12,18 @@ const colors = require('colors');
 
 const pages = new Set();
 
+function isInDocker() {
+    const DOCKERENV = '/.dockerenv';
+    return fs.existsSync(DOCKERENV);
+}
+
 async function startBrowser() {
-    const browser = await puppeteer.launch({
+    let options = {
         args: [
             `--window-size=${viewport}`,
             '--remote-debugging-address=0.0.0.0',
             '--remote-debugging-port=9222',
-            '--no-sandbox', 
+            '--no-sandbox',
             '--disable-setuid-sandbox'
         ],
         executablePath: 'google-chrome-stable',
@@ -26,8 +31,18 @@ async function startBrowser() {
         handleSIGINT: true,
         slowMo: 0,
         dumpio: false
-    });
+    };
 
+    if (!isInDocker()) {
+        const { executablePath, ...otherOptions } = options;
+        options = {
+            ...otherOptions,
+            args: [`--window-size=${viewport}`],
+            headless: false
+        };
+    }
+
+    const browser = await puppeteer.launch(options);
     await browser.newPage();
     return browser;
 }
