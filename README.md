@@ -8,16 +8,15 @@
     <br>
     <p align="center">Demo for GDG DevFest 2019 Bishkek</p>
     <p align="center"><b>Only CSS without JS? Is it real?</b> / <b>Только CSS без JS? А так можно?</b></p>
-    <p>
-        <h3>Table of content:</h3>
-        <ul>
-            <li><b>Task D</b> description (from <strong>Yandex.Contest 2019 Frontend Final #2</strong>)</li>
-            <li>Slides</li>
-            <li>How to run demo locally</li>
-            <li>How to run tests for demo (Puppeteer + Google Chrome in Docker using VSCode Remote-Containers)</li>
-        </ul>
-    </p>
     <br>
+</div>
+
+### Table of content:
+* **Task D** description (from **Yandex.Contest 2019 Frontend Final #2**)</li>
+* Slides
+* How to run demo locally
+* How to run tests for demo (`Puppeteer` + `Google Chrome` in `Docker` using `VSCode` `Remote-Containers`)
+    </ul>
 </div>
 
 ## `Task D` description
