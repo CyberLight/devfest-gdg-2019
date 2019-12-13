@@ -1,4 +1,4 @@
-# GDG DevFest 2019 Frontend task solution
+# Only CSS without JS? Is it real?
 
 <div align="center">
     <br>
@@ -7,6 +7,16 @@
     <br>
     <br>
     <p align="center">Demo for GDG DevFest 2019 Bishkek</p>
+    <p align="center"><b>Only CSS without JS? Is it real?</b> / <b>Только CSS без JS? А так можно?</b></p>
+    <p>
+        <h3>Table of content:</h3>
+        <ul>
+            <li><b>Task D</b> description (from <strong>Yandex.Contest 2019 Frontend Final #2</strong>)</li>
+            <li>Slides</li>
+            <li>How to run demo locally</li>
+            <li>How to run tests for demo (Puppeteer + Google Chrome in Docker using VSCode Remote-Containers)</li>
+        </ul>
+    </p>
     <br>
 </div>
 
@@ -17,7 +27,6 @@
 * [Slides in PDF format](docs/ru_DevFest_2019_Paper.pdf)
 
 ## `Hi-tech` setup
-_______________
 
 ### How to setup environment
 * Install [VSCode](https://code.visualstudio.com/)
@@ -37,7 +46,6 @@ _______________
   * Or run `npm start` and open `http://localhost:9001` in your `Google Chrome` browser
 
 ## `Regular` setup
-_______________
 
 * Install `node.js latest` to your system
 * Install [VSCode](https://code.visualstudio.com/)
@@ -51,5 +59,5 @@ _______________
 * In `VSCode` integrated terminal run `npm test` (for running tests) or `npm start` (for viewing final result of task solution)
 
 ## Special thanks to
-_______________
+
 [<img width="150px" height="38px" src="https://yastatic.net/q/logoaas/v1/%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20Contest.svg" alt="gdg-devfest-2019"/>](https://yandex.ru/championship/)
