@@ -13,6 +13,9 @@
 ## `Task D` description
 * [Task D Description in PDF format](docs/ru_task_D_final.pdf)
 
+## `GDG DevFest 2019` slides
+* [Slides in PDF format](docs/ru_DevFest_2019_Paper.pdf)
+
 ## `Hi-tech` setup
 _______________
 
